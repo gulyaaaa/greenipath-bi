@@ -8,7 +8,7 @@ import sys, os, re
 sys.path.append(os.path.expanduser("~/greenipath-bi"))
 from ui import apply_styles, render_sidebar, page_header
 
-DB_PATH = os.path.expanduser("~/greenipath-bi/greenipath.db")
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../greenipath.db")
 
 def run_query_safe(sql):
     try:

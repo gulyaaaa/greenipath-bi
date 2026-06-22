@@ -8,7 +8,7 @@ import sys, os
 sys.path.append(os.path.expanduser("~/greenipath-bi"))
 from ui import apply_styles, render_sidebar, page_header, kpi_card
 
-DB_PATH = os.path.expanduser("~/greenipath-bi/greenipath.db")
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../greenipath.db")
 
 def get_data(query):
     conn = sqlite3.connect(DB_PATH)

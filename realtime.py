@@ -7,7 +7,7 @@ import time
 import random
 from datetime import datetime, timedelta
 
-DB_PATH = os.path.expanduser("~/greenipath-bi/greenipath.db")
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "greenipath.db")
 
 def get_conn():
     return sqlite3.connect(DB_PATH)

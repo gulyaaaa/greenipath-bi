@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-DB_PATH = os.path.expanduser("~/greenipath-bi/greenipath.db")
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "greenipath.db")
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)

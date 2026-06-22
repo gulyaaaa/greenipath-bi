@@ -14,7 +14,7 @@ from realtime import (
     get_latest_monitoring_stream, get_stream_stats
 )
 
-DB_PATH = os.path.expanduser("~/greenipath-bi/greenipath.db")
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../greenipath.db")
 
 st.set_page_config(
     page_title="Real-Time · GreenIPath",
