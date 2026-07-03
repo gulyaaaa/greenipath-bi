@@ -11,123 +11,159 @@ LOGO_B64 = "iVBORw0KGgoAAAANSUhEUgAAATAAAADECAYAAAAYj31IAABlLUlEQVR4nO19d7wlRZn2
 def login_page():
     st.markdown("""
     <style>
-    .stApp { background-color: #111714; }
+    .stApp { background-color: #1A3D2B; }
     .block-container {
-        max-width: 420px !important;
-        margin: 0 auto !important;
-        padding-top: 8vh !important;
-        padding-bottom: 4vh !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     section[data-testid="stSidebar"] { display: none !important; }
     header[data-testid="stHeader"] { display: none !important; }
     #MainMenu { display: none !important; }
+    footer { display: none !important; }
 
-    /* Карточка */
-    .login-card {
+    /* Хедер */
+    .top-header {
         background: #FFFFFF;
+        padding: 16px 40px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-bottom: 1px solid #E2E5EA;
+        width: 100%;
+    }
+    .header-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1A3D2B;
+        letter-spacing: 0.01em;
+    }
+    .header-sub {
+        font-size: 11px;
+        color: #6B7280;
+        letter-spacing: 0.08em;
+        margin-top: 2px;
+    }
+
+    /* Форма */
+    .form-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 72px);
+        padding: 40px 16px;
+    }
+    .form-card {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
         border-radius: 12px;
-        padding: 36px 32px 28px;
-        box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        padding: 40px 36px;
+        width: 100%;
+        max-width: 380px;
         text-align: center;
     }
-    .card-title {
-        font-size: 20px;
+    .form-title {
+        font-size: 22px;
         font-weight: 700;
-        color: #111827;
+        color: #FFFFFF;
         margin-bottom: 6px;
     }
-    .card-sub {
+    .form-sub {
         font-size: 13px;
-        color: #6B7280;
-        margin-bottom: 24px;
+        color: rgba(255,255,255,0.55);
+        margin-bottom: 28px;
+    }
+    .divider {
+        border: none;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        margin: 20px 0;
     }
 
     /* Инпуты */
     .stTextInput > label {
-        color: #374151 !important;
-        font-size: 12px !important;
+        color: rgba(255,255,255,0.7) !important;
+        font-size: 11px !important;
         font-weight: 600 !important;
-        letter-spacing: 0.05em !important;
-        text-align: left !important;
-        display: block !important;
+        letter-spacing: 0.07em !important;
     }
     .stTextInput input {
-        background: #F9FAFB !important;
-        border: 1.5px solid #E2E5EA !important;
+        background: rgba(255,255,255,0.95) !important;
+        border: 1px solid rgba(255,255,255,0.2) !important;
         border-radius: 6px !important;
         font-size: 14px !important;
         color: #111827 !important;
-        text-align: left !important;
     }
     .stTextInput input:focus {
-        border-color: #2D6A4F !important;
-        box-shadow: 0 0 0 3px rgba(45,106,79,0.12) !important;
+        border-color: #6FCF97 !important;
+        box-shadow: 0 0 0 3px rgba(111,207,151,0.2) !important;
     }
 
     /* Кнопка */
     .stButton > button {
-        background: #1A3D2B !important;
-        color: #FFFFFF !important;
+        background: #FFFFFF !important;
+        color: #1A3D2B !important;
         border: none !important;
         border-radius: 6px !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
         font-size: 14px !important;
         padding: 11px !important;
-        margin-top: 4px !important;
+        margin-top: 6px !important;
         letter-spacing: 0.02em !important;
     }
     .stButton > button:hover {
-        background: #2D6A4F !important;
+        background: #F0FDF4 !important;
     }
 
-    /* Алерты */
-    .stAlert {
-        border-radius: 6px !important;
-        font-size: 13px !important;
+    .login-footer {
+        font-size: 11px;
+        color: rgba(255,255,255,0.25);
+        text-align: center;
+        margin-top: 16px;
     }
     </style>
     """, unsafe_allow_html=True)
 
-    # Логотип над карточкой
+    # Белый хедер
     st.markdown(f'''
-    <div style="text-align:center;margin-bottom:24px;">
+    <div class="top-header">
       <img src="data:image/png;base64,{LOGO_B64}"
-           style="height:72px;width:auto;" alt="GreenIPath"/>
-      <div style="font-size:11px;color:rgba(255,255,255,0.35);
-                  letter-spacing:0.12em;margin-top:8px;">
-        CARBON BI SYSTEM
+           style="height:44px;width:auto;" alt="GreenIPath"/>
+      <div>
+        <div class="header-title">GreenIPath</div>
+        <div class="header-sub">CARBON BI SYSTEM</div>
       </div>
     </div>
     ''', unsafe_allow_html=True)
 
-    # Карточка — заголовок
-    st.markdown('''
-    <div style="text-align:center;margin-bottom:20px;">
-      <div class="card-title">Вход в систему</div>
-      <div class="card-sub">Введите учётные данные для доступа к платформе</div>
-    </div>
-    ''', unsafe_allow_html=True)
+    # Центрирование формы
+    _, col, _ = st.columns([1, 1.4, 1])
+    with col:
+        st.markdown('''
+        <div style="margin-top: 10vh;">
+          <div class="form-title">Вход в систему</div>
+          <div class="form-sub">Введите учётные данные для доступа к платформе</div>
+        </div>
+        ''', unsafe_allow_html=True)
 
-    username = st.text_input("Логин", placeholder="Введите логин", key="login_user")
-    password = st.text_input("Пароль", type="password",
-                             placeholder="Введите пароль", key="login_pass")
+        username = st.text_input("ЛОГИН", placeholder="Введите логин", key="login_user")
+        password = st.text_input("ПАРОЛЬ", type="password",
+                                 placeholder="Введите пароль", key="login_pass")
 
-    if st.button("Войти", type="primary", use_container_width=True):
-        if username in USERS and USERS[username]["password"] == password:
-            st.session_state["authenticated"] = True
-            st.session_state["username"]      = username
-            st.session_state["role"]          = USERS[username]["role"]
-            st.session_state["display_name"]  = USERS[username]["name"]
-            st.rerun()
-        else:
-            st.error("Неверный логин или пароль")
+        if st.button("Войти", type="primary", use_container_width=True):
+            if username in USERS and USERS[username]["password"] == password:
+                st.session_state["authenticated"] = True
+                st.session_state["username"]      = username
+                st.session_state["role"]          = USERS[username]["role"]
+                st.session_state["display_name"]  = USERS[username]["name"]
+                st.rerun()
+            else:
+                st.error("Неверный логин или пароль")
 
-    st.markdown('''
-    <div style="text-align:center;margin-top:20px;font-size:11px;
-                color:rgba(255,255,255,0.25);">
-      © 2025 GreenIPath &nbsp;·&nbsp; Конфиденциально
-    </div>
-    ''', unsafe_allow_html=True)
+        st.markdown('''
+        <div class="login-footer">
+          © 2025 GreenIPath &nbsp;·&nbsp; Конфиденциально
+        </div>
+        ''', unsafe_allow_html=True)
 
 
 def check_auth():
