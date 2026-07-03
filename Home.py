@@ -20,7 +20,9 @@ def get_data(query):
 st.set_page_config(page_title="GreenIPath Carbon BI", page_icon=None,
                    layout="wide", initial_sidebar_state="expanded")
 apply_styles()
+check_auth()
 render_sidebar()
+render_user_info()
 
 page_header(
     "Портфельный обзор",
