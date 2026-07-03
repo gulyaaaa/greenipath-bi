@@ -148,8 +148,7 @@ with col_r:
 
 st.markdown('<div class="section-card">', unsafe_allow_html=True)
 st.markdown('<div class="section-title">Все периоды мониторинга</div>', unsafe_allow_html=True)
-display_df = periods_df[["project_name","period_number","period_start","period_end","status","days_to_end"]].copy()
-display_df.columns = ["Проект","Период","Начало","Конец","Статус","Дней до конца"]
-st.dataframe(display_df, use_container_width=True, hide_index=True,
-    column_config={"Дней до конца": st.column_config.NumberColumn(format="%d дн.")})
+display_df = periods_df[["project_name","period_number","period_start","period_end","status"]].copy()
+display_df.columns = ["Проект","Период","Начало","Конец","Статус"]
+st.dataframe(display_df, use_container_width=True, hide_index=True)
 st.markdown('</div>', unsafe_allow_html=True)
